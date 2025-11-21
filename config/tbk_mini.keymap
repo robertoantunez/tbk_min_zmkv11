@@ -1,5 +1,4 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define DEFAULT 0
@@ -26,19 +25,19 @@
 
         default_layer {
             bindings = <
-&kp C_PP    &kp Q  &kp W  &kp E          &kp R           &kp T      &kp Y          &kp U         &kp I         &kp O    &kp P            &kp BSPC
-&kp C_NEXT  &kp A  &kp S  &kp D          &lt SYMB F      &kp G      &kp H          &kp J         &kp K         &kp L    &hm RSHFT ENTER  &kp C_VOL_UP
-&kp C_PREV  &kp Z  &kp X  &kp C          &lt NUM V       &kp B      &kp N          &kp M         &kp COMMA     &kp DOT  &kp C_MUTE       &kp C_VOL_DN
-                          &hm LSHFT ESC  &hm LGUI ENTER  &kp DEL    &lt BLUE BSPC  &lt NUM SEMI  &lt SYMB SPC
+&kp TAB           &kp Q  &kp W  &kp E             &kp R      &kp T    &kp Y  &kp U          &kp I          &kp O    &kp P      &kp ENTER
+&kp LEFT_SHIFT    &kp A  &kp S  &kp D             &kp F      &kp G    &kp H  &kp J          &kp K          &kp L    &kp SEMI   &kp SQT
+&kp LEFT_CONTROL  &kp Z  &kp X  &kp C             &kp V      &kp B    &kp N  &kp M          &kp COMMA      &kp DOT  &kp SLASH  &kp RIGHT_SHIFT
+                                &kp LEFT_COMMAND  &kp SPACE  &mo 1    &mo 2  &kp BACKSPACE  &kp RIGHT_ALT
             >;
         };
 
         symbols {
             bindings = <
-&trans  &none   &kp EXCL  &kp AMPS   &kp STAR   &kp CARET    &kp GRAVE  &kp FSLH  &kp LPAR  &kp RPAR  &none   &trans
-&trans  &trans  &kp AT    &kp MINUS  &kp EQUAL  &none        &trans     &kp SQT   &kp LBKT  &kp RBKT  &trans  &trans
-&trans  &none   &kp HASH  &kp PRCNT  &kp DLLR   &none        &trans     &kp BSLH  &trans    &trans    &trans  &trans
-                          &trans     &trans     &trans       &trans     &trans    &trans
+&kp TAB           &kp F2          &trans          &trans          &trans                &trans                   &kp GRAVE  &kp FSLH  &kp LPAR  &kp RPAR  &none   &trans
+&kp LEFT_SHIFT    &kp F7          &trans          &kp UP_ARROW    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &trans     &kp SQT   &kp LBKT  &kp RBKT  &trans  &trans
+&kp LEFT_CONTROL  &kp KP_NUMLOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW       &kp EQUAL                &trans     &kp BSLH  &trans    &trans    &trans  &trans
+                                                  &trans          &trans                &trans                   &trans     &trans    &trans
             >;
         };
 
@@ -60,35 +59,6 @@
             >;
         };
 
-        blue {
-            // I added a zero key because Zephyr won't compile with a only-transparent layer
-
-            bindings = <
-&trans  &trans  &trans  &trans        &trans        &bt BT_CLR      &trans        &trans        &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans        &trans        &trans          &trans        &trans        &trans  &trans  &trans  &trans
-            >;
-        };
-
         // This layer is for easier copy/paste when creating new keymaps, so you have transparent keys already added
-
-        trans {
-            // -------------------------------------------------------------------------------------------------------------------------
-            // |         |         |         |         |         |                   |         |         |         |         |         |
-            // |         |         |         |         |         |                   |         |         |         |         |         |
-            // |         |         |         |         |         |                   |         |         |         |         |         |
-            //           |         |         |                                                           |         |         |
-            //                               |         |         |                   |         |         |
-            //                                         |         |         |         |         |
-            //                                         |         |         |         |         |
-            // I added a zero key because Zephyr won't compile with a only-transparent layer
-
-            bindings = <
-&trans  &kp KP_N0  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                           &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-        };
     };
 };
